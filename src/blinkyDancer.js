@@ -31,7 +31,8 @@
 
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   this.pokemonImage = './images/gastly.png';
-  Dancer.call(this, top, left, timeBetweenSteps, this.pokemonImage);
+  this.id = 'gastly';
+  Dancer.call(this, top, left, timeBetweenSteps, this.pokemonImage, this.id);
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);

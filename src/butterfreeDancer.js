@@ -1,7 +1,8 @@
 var ButterfreeDancer = function(top, left, timeBetweenSteps) {
   this.pokemonImage = './images/butterfree.gif';
   this.shouldMove = true;
-  Dancer.call(this, top, left, timeBetweenSteps, this.pokemonImage);
+  this.id = 'butterfree';
+  Dancer.call(this, top, left, timeBetweenSteps, this.pokemonImage, this.id);
 };
 
 ButterfreeDancer.prototype = Object.create(Dancer.prototype);
@@ -19,10 +20,9 @@ ButterfreeDancer.prototype.step = function() {
   // this.$node.animate({left: '250px'});  
 };
 
-ButterfreeDancer.prototype.lineUp = function() {
-  Dancer.prototype.lineUp.call(this);
+ButterfreeDancer.prototype.lineUp = function(leftValue, topValue) {
+  Dancer.prototype.lineUp.call(this, leftValue, topValue);
   this.left = 100;
-debugger;
   this.shouldMove = false;
   // ButterfreeDancer.prototype.step = ButterfreeDancer.prototype.lineupStep;
 };

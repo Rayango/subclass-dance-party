@@ -1,17 +1,51 @@
 $(document).ready(function() {
   window.dancers = [];
 
-  window.lineUpDancers = function(dancers) {
-    for (var i = 0; i < window.dancers.length; i++) {
+  window.lineUpDancers = function(leftValue, topValue, dancers) {
+    for (var i = 0; i < dancers.length; i++) {
       if (i === 0) {
-        window.dancers[i].$node.css('margin-left', '40px');
+        dancers[i].$node.css('margin-left', '40px');
       } else {
-        var marginOfPreviousDancer = parseInt(window.dancers[i - 1].$node.css('margin-left'), 10);
-        window.dancers[i].$node.css('margin-left', marginOfPreviousDancer + 90 + 'px');
+        var marginOfPreviousDancer = parseInt(dancers[i - 1].$node.css('margin-left'), 10);
+        dancers[i].$node.css('margin-left', marginOfPreviousDancer + 90 + 'px');
       }
-      window.dancers[i].timeBetweenSteps = 500;
-      window.dancers[i].lineUp();
+      dancers[i].timeBetweenSteps = 500;
+      dancers[i].lineUp(leftValue, topValue);
     }
+  };
+
+  window.danceOff = function() {
+
+    var pokemonGroups = {};
+    pokemonGroups.pikachu = {};
+    pokemonGroups.snorlaxes = {};
+    pokemonGroups.gastlys = {};
+    pokemonGroups.butterfrees = {};
+    debugger;
+    pokemonGroups.pikachu.dancers = window.dancers.filter(function(dancer) {
+      return dancer.id === 'pikachu';
+    });
+    pokemonGroups.pikachu.position = {left : '250px', top : '200px'};
+
+    pokemonGroups.snorlaxes.dancers = window.dancers.filter(function(dancer) {
+      return dancer.id === 'snorlax';
+    });
+    pokemonGroups.snorlaxes.position = {left : '250px', top: '140px'};
+
+    pokemonGroups.gastlys.dancers = window.dancers.filter(function(dancer) {
+      return dancer.id === 'gastly';
+    });
+    pokemonGroups.gastlys.position = {left : '250px', top: '80px'};
+
+    pokemonGroups.butterfrees.dancers = window.dancers.filter(function(dancer) {
+      return dancer.id === 'butterfree';
+    });
+    pokemonGroups.butterfrees.position = {left : '250px', top: '20px'};
+
+    window.lineUpDancers(pokemonGroups.pikachu.position.left, pokemonGroups.pikachu.position.top, pokemonGroups.pikachu.dancers);
+    window.lineUpDancers(pokemonGroups.snorlaxes.position.left, pokemonGroups.snorlaxes.position.top, pokemonGroups.snorlaxes.dancers);
+    window.lineUpDancers(pokemonGroups.gastlys.position.left, pokemonGroups.gastlys.position.top, pokemonGroups.gastlys.dancers);
+    window.lineUpDancers(pokemonGroups.butterfrees.position.left, pokemonGroups.butterfrees.position.top, pokemonGroups.butterfrees.dancers);  
   };
 
   $('.addDancerButton').on('click', function(event) {
@@ -45,7 +79,27 @@ $(document).ready(function() {
   });
 
   $('.lineUpDancers').on('click', function(event) {
-    window.lineUpDancers();
-  }); 
+    window.lineUpDancers('100px','135px', window.dancers);
+  });
+
+  $('body').on('click', '.pokemon', function(event) {
+    console.log('I am clicking pokemon');
+    console.log($(this));
+    if($(this).attr('id') === 'pikachu') {
+      $(this).attr('src', './images/raichu.png');
+      $(this).attr('id', 'raichu');
+    }
+  });
+
+  $('.danceOff').on('click', function(event) {
+    window.danceOff();
+  });
+ 
 });
+
+
+
+
+
+
 

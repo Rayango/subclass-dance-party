@@ -57,9 +57,10 @@
 //   this.setPosition(top, left);
 // }
 
-var Dancer = function(top, left, timeBetweenSteps, pokemonImage) {
+var Dancer = function(top, left, timeBetweenSteps, pokemonImage, pokemonId) {
+  this.id = pokemonId;
   this.pokemonImage = pokemonImage;
-  this.$node = $('<span class="dancer"> <img class="pokemon" src=' + this.pokemonImage + '></img></span>');
+  this.$node = $('<span class="dancer"> <img class="pokemon" id=' + this.id + ' src=' + this.pokemonImage + '></img></span>');
   this.step();
   this.setPosition(top, left);
   this.timeBetweenSteps = timeBetweenSteps; 
@@ -77,8 +78,9 @@ Dancer.prototype.setPosition = function(top, left) {
   this.$node.css(styleSettings);  
 };
 
-Dancer.prototype.lineUp = function() {
-  this.$node.animate({left: '100px', top: '135px'});
+Dancer.prototype.lineUp = function(leftValue, topValue) {
+  // this.$node.animate({left: '100px', top: '135px'});
+  this.$node.animate({left: leftValue, top: topValue});
 };
 
 

@@ -1,6 +1,7 @@
 var LazyDancer = function(top, left, timeBetweenSteps) {
   this.pokemonImage = './images/snorlax.gif';
-  Dancer.call(this, top, left, timeBetweenSteps, this.pokemonImage);
+  this.id = 'snorlax';
+  Dancer.call(this, top, left, timeBetweenSteps, this.pokemonImage, this.id);
   // this.$node.css('height', '25px');
   // this.
   this.degrees = 0;
