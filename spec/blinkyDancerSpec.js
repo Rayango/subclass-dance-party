@@ -8,11 +8,11 @@ describe('blinkyDancer', function() {
     blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
-  xit('should have a jQuery $node object', function() {
+  it('should have a jQuery $node object', function() {
     expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  xit('should have a step function that makes its node blink', function() {
+  it('should have a step function that makes its node blink', function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;

@@ -2,8 +2,15 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
-  background-color:#444;
+  padding: 0;
+  margin: 0;
+  /*margin-left: 5%;
+  margin-right: 5%;*/ 
+  background-image: url('./images/PalletTown.png');
+  background-size: cover;
+/*  background-repeat: no-repeat;*/
+
+/*  background-color:#444;*/
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -16,12 +23,17 @@ body, a:link, a:visited, a:active{
 .topbar{
   height:32px;
   background-color: #555;
+/*  position: fixed;*/
 }
 .title{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+/*  border:10px solid red;*/
+/*  border-radius:10px;*/
   position:absolute;
+}
+.pokemon{
+  height: 80px;
+  width: 80px;
 }
