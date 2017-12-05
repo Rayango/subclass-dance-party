@@ -78,7 +78,7 @@ Dancer.prototype.setPosition = function(top, left) {
 };
 
 Dancer.prototype.lineUp = function() {
-  this.$node.animate({left: '100px', top: '100px'});
+  this.$node.animate({left: '100px', top: '135px'});
 };
 
 

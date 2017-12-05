@@ -4,11 +4,12 @@ $(document).ready(function() {
   window.lineUpDancers = function(dancers) {
     for (var i = 0; i < window.dancers.length; i++) {
       if (i === 0) {
-        window.dancers[i].$node.css('margin-left', '80px');
+        window.dancers[i].$node.css('margin-left', '40px');
       } else {
-        var paddingOfPreviousDancer = parseInt(window.dancers[i - 1].$node.css('margin-left'), 10);
-        window.dancers[i].$node.css('margin-left', paddingOfPreviousDancer + 80 + 'px');
+        var marginOfPreviousDancer = parseInt(window.dancers[i - 1].$node.css('margin-left'), 10);
+        window.dancers[i].$node.css('margin-left', marginOfPreviousDancer + 90 + 'px');
       }
+      window.dancers[i].timeBetweenSteps = 500;
       window.dancers[i].lineUp();
     }
   };
