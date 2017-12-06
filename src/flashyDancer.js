@@ -12,22 +12,15 @@ FlashyDancer.prototype.constructor = FlashyDancer;
 
 FlashyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this); 
-  // var newPosition = this.$node.position().left + 3;
-  // this.$node.animate({left: newPosition + 'px'});
-  // newPosition -= 3;
-  // this.$node.animate({left: newPosition + 'px'});
   if (this.stepCount !== 0) {
-    this.$node.animate({left: this.left + 3 + 'px'});
-    this.$node.animate({left: this.left - 6 + 'px'});
+    this.$node.animate({left: this.left + 1 + 'px'});
+    this.$node.animate({left: this.left - 1 + 'px'});
   }
 
-  this.stepCount++;
-// debugger;
-  // var arrayOfColors = ['blue', 'green', 'red', 'orange', 'yellow'];
-  // this.$node.css('border-color', this.arrayOfColors[Math.floor(Math.random() * this.arrayOfColors.length)]);  
+  this.stepCount++; 
 };
 
 FlashyDancer.prototype.lineUp = function(leftValue, topValue) {
   Dancer.prototype.lineUp.call(this, leftValue, topValue);
-  this.left = 100;
+  this.left = $('body').width() * 0.10;
 };
