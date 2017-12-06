@@ -13,8 +13,8 @@ FlashyDancer.prototype.constructor = FlashyDancer;
 FlashyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this); 
   if (this.stepCount !== 0) {
-    this.$node.animate({left: this.left + 1 + 'px'});
-    this.$node.animate({left: this.left - 1 + 'px'});
+    this.$node.animate({left: this.left + 3 + 'px'});
+    this.$node.animate({left: this.left - 3 + 'px'});
   }
 
   this.stepCount++; 
@@ -22,5 +22,5 @@ FlashyDancer.prototype.step = function() {
 
 FlashyDancer.prototype.lineUp = function(leftValue, topValue) {
   Dancer.prototype.lineUp.call(this, leftValue, topValue);
-  this.left = $('body').width() * 0.10;
+  this.left = leftValue;
 };
